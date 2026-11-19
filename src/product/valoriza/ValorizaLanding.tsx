@@ -415,9 +415,12 @@ const VZ_CSS = `
 .vz-lead b { color: #2C126D; }
 /* Cifras con la misma cadencia del módulo «S/ 25 · 0%» de Subascars:
    valores y leyendas violetas, separados por un acento naranja. */
-.vz-stats { position: relative; display: grid; grid-template-columns: repeat(2, minmax(112px, 1fr)); gap: 56px; align-items: start; margin: 10px 0 0; }
-.vz-stats::after { content: "→"; position: absolute; top: 34px; left: 50%; width: 38px; height: 38px; margin-left: -19px; display: grid; place-items: center; border-radius: 50%; background: #F3EEFF; color: #8460E5; font-size: 24px; line-height: 1; }
-.vz-stats div { display: grid; gap: 4px; min-width: 112px; }
+.vz-stats { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 600px); column-gap: 96px; align-items: start; margin: 10px 0 0; }
+/* Connector uses the same frosted-white layers and lilac edge as VMC glass. */
+.vz-stats::after { content: ""; position: absolute; top: 34px; left: 50%; width: 38px; height: 38px; margin-left: -19px; border-radius: 12px; border: 1px solid rgba(132,96,229,.24); background: linear-gradient(150deg,rgba(255,255,255,.95),rgba(235,225,255,.55)); backdrop-filter: blur(6px); box-shadow: inset 0 1px 3px #fff, 0 5px 12px -7px rgba(90,53,194,.35); }
+.vz-stats::before { content: ""; position: absolute; z-index: 1; top: 44px; left: 50%; width: 20px; height: 20px; margin-left: -10px; background: #8460E5; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+.vz-stats div { display: grid; gap: 4px; min-width: 0; }
 .vz-stats dt { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 30px; line-height: 48px; font-weight: 800; letter-spacing: -0.03em; color: #8460E5; }
 .vz-stats dd { margin: 0; line-height: 24px; font-size: 13px; font-weight: 600; color: #786195; }
 
@@ -450,7 +453,7 @@ const VZ_CSS = `
 .vz-demo__chart { display: grid; gap: 12px; min-width: 0; padding: 20px; border: 1px solid #DED4F2; border-radius: 18px; background: #fff; box-shadow: 0 12px 22px -20px rgba(53,19,117,.65); }
 .vz-demo__chart h3, .vz-more h3 { margin: 0; font-size: 16px; line-height: 22px; font-weight: 800; color: var(--v700); }
 .vz-demo__chart header p, .vz-more header p { margin: 2px 0 0; font-size: 13px; line-height: 19px; color: var(--muted); }
-.vz-demo__chart .rv-tick { font-size: 16px; }
+.vz-demo__chart .rv-tick { font-size: 12px; }
 .vz-demo__chart dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; }
 .vz-demo__chart dl div { padding: 8px 10px; border-radius: 12px; background: var(--lav); }
 .vz-demo__chart dt { font-size: 11px; font-weight: 600; color: var(--muted); }
@@ -570,8 +573,9 @@ const VZ_CSS = `
   .vz-steps li { min-height: 108px; gap: 8px; padding: 12px; }
   .vz-center__block { padding: 32px 16px; }
   .vz-title { font-size: 26px; }
-  .vz-stats { gap: 32px; }
-  .vz-stats::after { width: 28px; height: 28px; margin-left: -14px; top: 38px; font-size: 20px; }
+  .vz-stats { column-gap: 48px; }
+  .vz-stats::after { width: 28px; height: 28px; margin-left: -14px; top: 38px; border-radius: 9px; }
+  .vz-stats::before { top: 45px; width: 16px; height: 16px; margin-left: -8px; }
   .vz-stats dt { font-size: 20px; line-height: 28px; }
   .vz-stats dd { font-size: 12px; line-height: 18px; }
   .vz-know { grid-template-columns: minmax(0, 1fr); }
@@ -582,11 +586,12 @@ const VZ_CSS = `
   .vz-demo__content { padding: 20px 18px; }
   .vz-demo__value strong { font-size: 34px; }
   .vz-demo__chart { padding: 16px 12px; }
-  .vz-demo__chart .rv-tick, .vz-season .rv-tick { font-size: 22px; }
-  .vz-demo__chart .rv-val, .vz-season .rv-val { font-size: 24px; }
-.vz-demo__chart dl { gap: 4px; }
-  .vz-demo__chart dl div { padding: 7px 5px; }
-  .vz-demo__chart dd { font-size: 12px; }
+  .vz-demo__chart .rv-tick { font-size: 12px; }
+  .vz-season .rv-tick { font-size: 10px; }
+  .vz-demo__chart .rv-val, .vz-season .rv-val { font-size: 12px; }
+.vz-demo__chart dl { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .vz-demo__chart dl div { padding: 9px 10px; }
+  .vz-demo__chart dd { font-size: 14px; white-space: nowrap; }
   .vz-more { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .vz-more__wide { grid-column: auto; order: 0; }
   .vz-more__card { padding: 16px 12px; }
