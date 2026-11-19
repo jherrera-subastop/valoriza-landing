@@ -243,8 +243,8 @@ function ValorizaBody({ id }: { id: "d" | "m" }): JSX.Element {
           <h2 className="vz-title" style={{ fontSize: "clamp(18px, 5vw, 33px)", maxWidth: "100%" }}>Conocer su valor es el inicio<br /><span>Elegir el momento hace la diferencia</span></h2>
           <p className="vz-lead" style={{ maxWidth: "100%" }}>Conoce su valor estimado hoy y descubre cómo podría cambiar en los próximos meses. La<br />información que necesitas para ver una buena oportunidad y decidir tu próximo movimiento.</p>
           <dl className="vz-stats">
-            <div><dt>Hoy</dt><dd>Valor estimado de tu carro</dd></div>
-            <div><dt>Hasta 12 meses</dt><dd>Proyección de su valor</dd></div>
+            <div><dt><Vidrio s="valorizaciones" size={34} /><span>Hoy</span></dt><dd>Valor estimado de tu carro</dd></div>
+            <div><dt><Vidrio s="fecha" size={34} /><span>Hasta 12 meses</span></dt><dd>Proyección de su valor</dd></div>
           </dl>
           <div className="vz-know">
             <article className="vz-know__card">
@@ -415,11 +415,11 @@ const VZ_CSS = `
 .vz-lead b { color: #2C126D; }
 /* Cifras con la misma cadencia del módulo «S/ 25 · 0%» de Subascars:
    valores y leyendas violetas, separados por un acento naranja. */
-.vz-stats { position: relative; display: grid; grid-template-columns: repeat(2, minmax(112px, 1fr)); gap: 56px; align-items: center; margin: 10px 0 0; }
-.vz-stats::after { content: ""; position: absolute; top: 8px; left: 50%; width: 38px; height: 38px; margin-left: -19px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FBC47D 0 10%, transparent 11%), radial-gradient(circle at 68% 64%, rgba(255,255,255,.5) 0 7%, transparent 8%), #ED8936; box-shadow: 0 7px 14px -7px rgba(178,82,14,.75), inset 0 1px rgba(255,255,255,.55); }
+.vz-stats { position: relative; display: grid; grid-template-columns: repeat(2, minmax(112px, 1fr)); gap: 56px; align-items: start; margin: 10px 0 0; }
+.vz-stats::after { content: "→"; position: absolute; top: 34px; left: 50%; width: 38px; height: 38px; margin-left: -19px; display: grid; place-items: center; border-radius: 50%; background: #F3EEFF; color: #8460E5; font-size: 24px; line-height: 1; }
 .vz-stats div { display: grid; gap: 4px; min-width: 112px; }
-.vz-stats dt { font-size: 30px; line-height: 48px; font-weight: 800; letter-spacing: -0.03em; color: #8057E4; }
-.vz-stats dd { margin: 0; line-height: 24px; font-size: 13px; font-weight: 800; color: #8057E4; }
+.vz-stats dt { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 30px; line-height: 48px; font-weight: 800; letter-spacing: -0.03em; color: #8460E5; }
+.vz-stats dd { margin: 0; line-height: 24px; font-size: 13px; font-weight: 600; color: #786195; }
 
 /* Lo que debes saber: tarjeta con checklist + pantalla real (en lugar del video de Subascars). */
 .vz-know { display: grid; grid-template-columns: minmax(0, 1fr) 216px; gap: 24px; align-items: stretch; width: 100%; max-width: 640px; margin: 16px 0 8px; text-align: left; }
@@ -571,7 +571,9 @@ const VZ_CSS = `
   .vz-center__block { padding: 32px 16px; }
   .vz-title { font-size: 26px; }
   .vz-stats { gap: 32px; }
-  .vz-stats dt { font-size: 26px; line-height: 39px; }
+  .vz-stats::after { width: 28px; height: 28px; margin-left: -14px; top: 38px; font-size: 20px; }
+  .vz-stats dt { font-size: 20px; line-height: 28px; }
+  .vz-stats dd { font-size: 12px; line-height: 18px; }
   .vz-know { grid-template-columns: minmax(0, 1fr); }
   .vz-know__video { width: min(100%, 216px); }
   .vz-center .pvbtn { width: 100%; }
